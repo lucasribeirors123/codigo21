@@ -1,0 +1,490 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Código 21: Transforme Sua Vida em 21 Dias!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-gradient-start: #6a008a; /* Roxo escuro */
+            --primary-gradient-end: #9f43e0;   /* Violeta */
+            --secondary-color: #e53935; /* Vermelho vibrante para botões */
+            --text-light: #f4f4f4;
+            --text-dark: #333;
+            --card-background: rgba(255, 255, 255, 0.95);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            color: var(--text-light);
+            padding: 80px 20px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c62828; /* Um tom mais escuro de vermelho */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* --- Seções de Conteúdo --- */
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .content-section {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        /* --- Social Proof --- */
+        .social-proof {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-light);
+        }
+
+        .social-proof-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px 35px;
+            flex: 1 1 calc(33% - 40px);
+            max-width: 300px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .social-proof-item strong {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        .social-proof-item span {
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+
+        /* --- Video Section --- */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Benefits Section --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: var(--primary-gradient-start);
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Ícones Placeholder para benefícios */
+        .benefit-card .icon {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-gradient-start);
+            font-size: 1.1em;
+        }
+
+        .testimonial-author span {
+            font-weight: 400;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            color: var(--text-light);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-section h2 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .social-proof-item {
+                flex: 1 1 calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            .content-section {
+                padding: 30px;
+            }
+            .social-proof-item {
+                flex: 1 1 100%;
+                max-width: 350px; /* Limita largura em mobile */
+            }
+            .benefits-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-section h2 {
+                font-size: 1.8em;
+            }
+            .cta-section p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Cansada de se sentir invisível, perdida e sozinha na sua jornada de emagrecimento?</h1>
+            <p>Descubra o **Desafio Código 21**: seu mapa definitivo para um corpo transformado, auto-confiança inabalável e uma comunidade que te levanta, tudo em apenas 21 dias.</p>
+            <a href="https://wa.me/SEU_NUMERO_WHATSAPP?text=Quero%20participar%20do%20Desafio%20Codigo%2021" target="_blank" class="btn">EU QUERO MINHA TRANSFORMAÇÃO!</a>
+            <p style="font-size: 0.9em; margin-top: 20px; font-weight: 400; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Clique e entre para o grupo VIP no WhatsApp.</p>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section>
+        <div class="container content-section" style="background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2);">
+            <h2 style="color: var(--text-light);">Resultados que falam por si:</h2>
+            <div class="social-proof">
+                <div class="social-proof-item">
+                    <strong>1.200+</strong>
+                    <span>Mulheres já transformadas</span>
+                </div>
+                <div class="social-proof-item">
+                    <strong>85%</strong>
+                    <span>Alcançam seus objetivos</span>
+                </div>
+                <div class="social-proof-item">
+                    <strong>21 DIAS</strong>
+                    <span>É tudo que você precisa!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section>
+        <div class="container content-section">
+            <h2>Assista e Descubra o Poder do Código 21!</h2>
+            <div class="video-wrapper">
+                <!-- Substitua 'VIDEO_ID_AQUI' pelo ID real do seu vídeo do YouTube -->
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI" title="Desafio Código 21 - Saiba Mais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #555;">Neste vídeo, eu explico como o Desafio Código 21 vai te guiar passo a passo para a sua melhor versão. Prepare-se para se inspirar!</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section>
+        <div class="container">
+            <h2>O que o Desafio Código 21 vai te proporcionar:</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">💪</div>
+                    <h3>Direção Clara</h3>
+                    <p>Chega de dietas milagrosas e informações confusas! Aprenda o caminho exato para seus objetivos de emagrecimento, de forma inteligente e sustentável.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🧠</div>
+                    <h3>Força Mental</h3>
+                    <p>Domine a sua mente, quebre o ciclo da autossabotagem e construa uma mentalidade inabalável para alcançar qualquer meta que desejar.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">✨</div>
+                    <h3>Corpo Transformado</h3>
+                    <p>Sinta-se bem na sua própria pele novamente! Mais energia, vitalidade e as roupas voltando a servir como você sempre sonhou.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">👭</div>
+                    <h3>Comunidade de Apoio</h3>
+                    <p>Conecte-se com mulheres que te entendem, te inspiram e te impulsionam. Você nunca mais se sentirá sozinha nessa jornada.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">📚</div>
+                    <h3>Conhecimento Prático</h3>
+                    <p>Ferramentas e estratégias comprovadas que você pode aplicar HOJE para ver resultados reais, sem complicações e com muita eficácia.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">👑</div>
+                    <h3>Confiança Inabalável</h3>
+                    <p>Reconquiste a sua autoestima, sinta-se poderosa e mostre ao mundo a mulher incrível e capaz que você realmente é.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="container content-section">
+            <h2>Histórias de Sucesso: Mulheres Reais, Transformações Reais</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Eu me sentia sem rumo, perdida em tantas informações e dietas que nunca funcionavam. O Código 21 foi a luz no fim do túnel! Perdi 7kg em 21 dias e, mais importante, encontrei minha força interior. Sou outra mulher!"</p>
+                    <div class="testimonial-author">- Ana S. <span>(32 anos)</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Achava que estava sozinha nessa luta contra a balança, mas a comunidade do Desafio mudou tudo. O apoio e a energia são contagiantes. Consegui emagrecer 10kg e, pela primeira vez, sinto que posso manter meus resultados!"</p>
+                    <div class="testimonial-author">- Carla M. <span>(45 anos)</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Sempre fui cética com desafios, mas a abordagem do Código 21 é diferente. É prática, inspiradora e realmente nos ensina a amar o processo. Meu corpo e minha mente se transformaram de um jeito que eu jamais imaginei. Obrigada!"</p>
+                    <div class="testimonial-author">- Juliana P. <span>(28 anos)</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second CTA Section -->
+    <section>
+        <div class="container cta-section">
+            <h2>Sua Transformação Começa AGORA!</h2>
+            <p>Pare de adiar seus sonhos. O Desafio Código 21 é a oportunidade que você esperava para reescrever sua história de uma vez por todas.</p>
+            <a href="https://wa.me/SEU_NUMERO_WHATSAPP?text=Quero%20participar%20do%20Desafio%20Codigo%2021" target="_blank" class="btn">PARTICIPE DO DESAFIO CÓDIGO 21!</a>
+            <p style="font-size: 0.9em; margin-top: 20px; font-weight: 300; color: rgba(255, 255, 255, 0.8);">Vagas limitadas. Garanta seu lugar no grupo VIP agora!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Desafio Código 21. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para FontAwesome ou outros ícones (se necessário e for usar)
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    -->
+    <script>
+        // Pequena funcionalidade para scroll suave para âncoras se você adicionar no futuro
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // NOTA IMPORTANTE:
+        // Por favor, substitua 'SEU_NUMERO_WHATSAPP' no link abaixo (em dois lugares nesta página)
+        // pelo seu número de telefone completo, incluindo o código do país (ex: 5511999998888).
+        // E substitua 'VIDEO_ID_AQUI' pelo ID do seu vídeo do YouTube.
+    </script>
+</body>
+</html>
+```
